@@ -8,7 +8,7 @@ function main(){
     Contex = Canvas.getContext("2d");
         Canvas.width = window.innerWidth;
         Canvas.height = window.innerHeight;
-        let promise = navigator.mediaDevices.getUserMedia({
+    let promise = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
     facingMode: 'environment'
@@ -28,5 +28,35 @@ function main(){
 }
 function updateCanvas(){
     Contex.drawImage(Video,0,0);
-    window.requestAnimationFrame(updateCanvas)
+    // window.requestAnimationFrame(updateCanvas)
 }
+
+
+function abc(){
+    const datauri = Canvas.toDataURL();
+    console.log(datauri);
+    const cc = document.querySelector("#imgimg");
+    cc.src = datauri;
+
+
+}
+function abcd(){
+  if (window.navigator.msSaveBlob){
+    window.navigator.msSaveBlob(Canvas.msToBlob(),"downloading.png");
+  }
+  else{
+    const a  = document.createElement("a");
+    document.body.appendChild(a);
+    a.href = Canvas.toDataURL();
+    a.download = "downloading.png";
+    a.click();
+  }
+
+}
+
+// const cc = document.querySelector("#Capt");
+// cc.addEventListener("click",function(){
+//     const datauri = Canvas.toDataURL();
+//     console.log(datauri);
+// })
+// var png = ReImg.fromCanvas(document.getElementById('idCanvas')).toPng();
