@@ -28,7 +28,7 @@ function main(){
 }
 function updateCanvas(){
     Contex.drawImage(Video,0,0);
-    // window.requestAnimationFrame(updateCanvas)
+     window.requestAnimationFrame(updateCanvas)
 }
 
 
