@@ -8,7 +8,12 @@ function main(){
     Contex = Canvas.getContext("2d");
         Canvas.width = window.innerWidth;
         Canvas.height = window.innerHeight;
-    let promise = navigator.mediaDevices.getUserMedia({video:true})
+        let promise = navigator.mediaDevices.getUserMedia({
+  audio: false,
+  video: {
+    facingMode: 'environment'
+  }
+})
     promise.then(function(signal){
     Video = document.createElement("video");
     Video.srcObject = signal;
